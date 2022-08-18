@@ -1,3 +1,9 @@
-const express =require('express');
+const express = require('express')
 
-const app = express();
+const app = express()
+
+const router = require('./src/router')
+
+app.use('/pessoas', router)
+
+app.listen(3000,() =>{console.log("Servidor rodando na porta 3000")})

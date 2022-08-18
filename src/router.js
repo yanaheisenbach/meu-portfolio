@@ -2,14 +2,15 @@ const express =require('express');
 
 const router = express.Router();
 
+const pessoas = require('./database/pessoas.json');
 
-router.get("/" , (req, res)=>{
-    res.send("Olá, visitante!")
-})
+const PessoasController = require('./controllers/PessoasController')
 
-router.get('/about' , (req, res)=>{
-    res.send('Sobre nós')
-})
+router.get("/" , PessoasController.listarPessoas );
+
+router.get('/:id' , PessoasController.mostrarPessoa)
+
+    
 
 module.exports = router;
 
